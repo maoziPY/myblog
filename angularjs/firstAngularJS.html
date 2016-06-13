@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/jquery/jquery.js"></script>
+</head>
+<body>
+
+<!--例子1（单一值的渲染）-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">
+
+    名: <input type="text" ng-model="firstName"><br>
+    姓: <input type="text" ng-model="lastName"><br>
+    <br>
+    姓名: {{firstName + " " + lastName}}
+
+    <span ng-if="carname==carname2">you may be a father</span>
+    &lt;!&ndash;
+    分支语句之ng-switch on、ng-if/ng-show/ng-hide/ng-disabled标签
+    <ul>
+        <li ng-repeat=”person in persons”>
+            <span ng-switch on=”person.sex”>
+            <span ng-switch-when=”1〃>you are a boy</span>
+            <span ng-switch-when=”2〃>you are a girl</span>
+            </span>
+                <span ng-if=”person.sex==1〃>you may be a father</span>
+                <span ng-show=”person.sex==2〃>you may be a mother</span>
+            <span>
+                please input your baby’s name:<input type=”text” ng-disabled=”!person.hasBaby”/>
+            </span>
+            <span>
+        </li>
+    </ul>&ndash;&gt;
+    <h1>{{carname}}</h1>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope) {
+        $scope.firstName = "John";
+        $scope.lastName = "Doe";
+
+        $scope.carname = "carname";
+    });
+</script>-->
+
+<!--例子2（属性的渲染）-->
+<!--<div ng-app="myApp">
+
+    <div runoob-directive="1231"></div>
+    <div class=runoob-directive></div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.directive("runoobDirective", function () {
+            return {
+                template: "<h1>自定义指令!</h1>"
+            };
+        });
+    </script>
+</div>-->
+
+<!--例子3（循环渲染）-->
+<!--<div ng-app="myApp" ng-controller="myCtrl">
+
+    <ul>
+        <li ng-repeat="x in names">{{x}}</li>
+    </ul>
+
+</div>
+
+<script>
+    var app = angular.module('myApp', []);
+
+    app.controller('myCtrl', function($scope) {
+        $scope.names = ["Emil", "Tobias", "Linus"];
+    });
+</script>-->
+
+<!--例子4(请求服务)-->
+<div ng-app="myApp" ng-controller="myCtrl">
+
+    <p>欢迎信息:</p>
+
+    <!-- <h1>{{myWelcome}}</h1>-->
+
+</div>
+
+<p> $http 服务向服务器请求信息，返回的值放入变量 "myWelcome" 中。</p>
+
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function ($scope, $http) {
+        /* $http.get("index.html").then(function (response) {
+         console.log(response);
+         $("h1").html(response.data);
+         /!*$scope.myWelcome = response.data;*!/
+         });*/
+        /**then，success区分？
+         *
+         * then()方法与其他两种方法的主要区别是，它会接收到完整的响应对象，而success()和error()则会对响应对象进行析构。
+         * */
+
+       /* $http.get("http://localhost:8081/").success(function (response) {
+            console.log(response);return;
+            /!* $scope.myWelcome = response.data;*!/
+        });*/
+
+        //请求方式2
+        $http({
+            url: 'http://localhost:8081/',
+            params:{
+                'username222':'PY',
+                "testName" : "PY2"
+            },
+            method: 'post'
+        }).success(function (data, header, config, status) {
+            console.log(data);
+        }).error(function (data, header, config, status) {
+            console.log(data);
+        });
+
+    });
+</script>
+
+</body>
+</html>
+
+<!--what I need-->
+
+<!--
+
+js -> dom 值传递
+1: 单一值的渲染 （例子1）
+
+2：属性的渲染（例子2）
+
+3：循环渲染，dom中用for进行循环 （例子3）
+
+4：请求服务 （例子4）
+
+5：判断渲染，dom中用if else进行判断渲染(ng-if)
+
+
+-->
