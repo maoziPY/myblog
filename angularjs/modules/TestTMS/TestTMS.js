@@ -34,7 +34,9 @@ TestTMS.prototype.load = function () {
         url: "http://localhost:3000/queryById",
         data: "id=5",
         success: function (res) {
-            console.log(res);
+
+
+            $(".main").text(JSON.stringify(res));
         }
     });
 };
