@@ -7,7 +7,7 @@
 
 文档结构
 
-    *angularjs主要提供三个目录，lib（插件），view（入口html文件），module（`模块化，支持多模板`）
+    *angularjs主要提供三个目录，lib（插件），view（入口html文件），module（模块化，支持多模板）
     
       *结构如下： lib
               
