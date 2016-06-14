@@ -40,6 +40,12 @@ app.post("/queryAll", function(req, res, next) {
     userDao.queryAll(req, res, next);
 });
 
+/*获取模板*/
+app.get('/getTemplate', function (req, res) {
+   /* console.log(__dirname);*/
+    res.sendFile("D:\\worspace\\myblog\\angularjs\\modules\\"+ req.query.moduleName +"\\template.html");
+});
+
 /*app.listen(3000); 简单方式*/
 
 var server = app.listen(3000, function() {
