@@ -21,8 +21,15 @@ TestTMS.prototype.load = function () {
     $.get("http://localhost:3000/getTemplate",
         {moduleName: module.name},
         function (data) {
-            // 模板渲染
+
+            // 渲染模板1
+            var $tm1 = $(data).find("[tmkey=tm1]");
             module.container.empty();
-            module.container.append(data);
+            module.container.append($tm1.html());
+
+            // 渲染模板2
+            var $tm2 = $(data).find("[tmkey=tm2]");
+            module.container.empty();
+            module.container.append($tm2.html());
         }, "html");
 };
