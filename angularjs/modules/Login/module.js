@@ -1,20 +1,14 @@
 /**
- * Created by PY on 2016/6/14 0014.
+ * Created by PY on 2016/6/15 0015.
  */
 
-/**
- * TestTMS 构造方法
- * */
-function TestTMS() {
+function Login() {
     var module = this;
     module.container = $("." + arguments[0]); // 模块容器
     module.name = /function\s+(\w+)/.exec(arguments.callee)[1]; // 模板名称
 }
 
-/**
- * load 主方法
- * */
-TestTMS.prototype.load = function () {
+Login.prototype.load = function() {
     var module = this;
 
     // 获取模板
@@ -27,10 +21,12 @@ TestTMS.prototype.load = function () {
             module.container.empty();
             module.container.append($tm1.html());
 
-            // 渲染模板2
+
+
+            /*// 渲染模板2
             var $tm2 = $(data).find("[tmkey=tm2]");
             module.container.empty();
-            module.container.append($tm2.html());
+            module.container.append($tm2.html());*/
         }, "html");
 
 
@@ -43,5 +39,4 @@ TestTMS.prototype.load = function () {
                 res
             ).appendTo("head");
         }, "text");
-
 };

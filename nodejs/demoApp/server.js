@@ -41,8 +41,13 @@ app.post("/queryAll", function(req, res, next) {
 });
 
 // 获取模板
-app.get('/getTemplate', function (req, res) {
+app.get("/getTemplate", function (req, res) {
     res.sendFile("D:\\worspace\\myblog\\angularjs\\modules\\"+ req.query.moduleName +"\\template.html");
+});
+
+// 获取样式
+app.get("/getStyle", function(req, res) {
+    res.sendFile("D:\\worspace\\myblog\\angularjs\\modules\\"+ req.query.moduleName +"\\style.css");
 });
 
 /*app.listen(3000); 简单方式*/
