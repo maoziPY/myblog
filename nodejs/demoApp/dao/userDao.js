@@ -16,7 +16,7 @@ var pool = mysql.createPool($conf.mysql);
 var jsonWrite = function (res, ret) {
     if (typeof ret === "undefined") {
         res.json({
-            code: "1",
+            code: "0",
             msg: "操作失败"
         });
     } else {
@@ -111,6 +111,17 @@ module.exports = {
                 connection.release();
             });
         });
+    },
+
+    queryByUsername: function(req, res, next) {
+        var username = req.body.username || req.query.username;
+        var password = req.body.password || req.query.password;
+        pool.getConnection(function(err, connection) {
+            connection.query($sql.queryByUsername, [username, password], function(err, result) {
+                jsonWrite(res, result);
+                connection.release();
+            })
+        })
     }
 };
 

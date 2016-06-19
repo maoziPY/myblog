@@ -6,11 +6,11 @@ var app = angular.module("myApp", []);
 app.controller("myCtrl", function ($scope, $http) {
     $http({
 
-        /*url: "http://localhost:3000/addUser",
+        url: "http://localhost:3000/addUser",
          params: {
-         "username": "test2",
-         "password": "123"
-         },*/
+         "username": "py",
+         "password": "1234"
+         },
 
         /*url: "http://localhost:3000/deleteUser",
         params: {
@@ -24,17 +24,17 @@ app.controller("myCtrl", function ($scope, $http) {
             "password": "123"
         },*/
 
-        url: "http://localhost:3000/queryById",
+        /*url: "http://localhost:3000/queryById",
         params: {
             "id": "5"
         },
-        method: "post"
+        method: "post"*/
 
-        /*url: "http://localhost:3000/queryAll",
+       /* url: "http://localhost:3000/queryAll",
         params: {
 
-        },
-        method: "post"*/
+        },*/
+        method: "post"
     }).success(function (data) {
         console.log(data);
     }).error(function (data) {

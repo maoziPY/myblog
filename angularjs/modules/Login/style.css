@@ -1,3 +1,37 @@
 body {
-    color: #ccc;
+    height: 695px;
+    background-image: url("../../modules/Login/images/loginBackground.png"); /*图片地址*/
+    background-origin: content; /*从content区域开始显示背景*/
+    background-position: 50% 50%; /*图片上下左右居中*/
+    background-size: contain; /*保持图像本身的宽高比例，将图片缩放到宽度或高度正好适应定义背景的区域*/
+    background-repeat:no-repeat;/*图像不重复显示*/
+}
+
+.loginForm {
+    height: 300px;
+    left: 800px;
+    position: absolute;
+    top: 150px;
+    width: 400px;
+}
+
+.username, .password {
+    margin: 40px 0 20px 40px;
+    width: 300px;
+}
+
+.loginOpera {
+    margin-left: 40px;
+}
+
+.loginOpera > div {
+    display: inline-block;
+}
+
+.forgetPassword {
+    margin-left: 20px;
+}
+
+.submitBtn {
+    width: 100px; !important;
 }

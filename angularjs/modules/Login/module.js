@@ -8,7 +8,7 @@ function Login() {
     module.name = /function\s+(\w+)/.exec(arguments.callee)[1]; // 模板名称
 }
 
-Login.prototype.load = function() {
+Login.prototype.load = function () {
     var module = this;
 
     // 获取模板
@@ -16,27 +16,63 @@ Login.prototype.load = function() {
         {moduleName: module.name},
         function (data) {
 
-            // 渲染模板1
-            var $tm1 = $(data).find("[tmkey=tm1]");
+            // 获取样式
+            $.get("http://localhost:3000/getStyle",
+                {moduleName: module.name},
+                function (res) {
+                    // 导入css文件
+                    $("<style></style>").append(
+                        res
+                    ).appendTo("head");
+                }, "text");
+
+            // 渲染主模板
+            var $master = $(data).find("[tmkey=master]");
             module.container.empty();
-            module.container.append($tm1.html());
+            module.container.append($master.html());
 
-
-
-            /*// 渲染模板2
-            var $tm2 = $(data).find("[tmkey=tm2]");
-            module.container.empty();
-            module.container.append($tm2.html());*/
+            // 绑定相关事件
+            module.setEvent();
         }, "html");
-
-
-    // 获取样式
-    $.get("http://localhost:3000/getStyle",
-        {moduleName: module.name},
-        function (res) {
-            // 导入css文件
-            $("<style></style>").append(
-                res
-            ).appendTo("head");
-        }, "text");
 };
+
+/**
+ * setEvent 绑定相关事件
+ * */
+Login.prototype.setEvent = function () {
+    var module = this;
+
+    module.container.find(".submitBtn").click(function () {
+            var $this = $(this);
+            var username = module.container.find(".username").val();
+            var password = module.container.find(".password").val();
+
+            $.ajax({
+                type: "post",
+                url: "http://localhost:3000/queryByUsername",
+                data: {
+                    username: username,
+                    password: password
+                },
+                success: function (res) {
+                    // 成功
+                    if (res.length > 0) {
+                        window.open("file:///D:/worspace/myblog/angularjs/view/index/index.html", "_self");
+                        /*$(res).each(function () {
+
+                        });*/
+                    }
+                    // 失败
+                    else {
+                        alert("请输入正确的用户名或者密码！");
+                    }
+                }
+            });
+        }
+    );
+
+    module.container.find(".forgetPassword").click(function() {
+        alert("不给蠢的人重新设置密码，不谢！");
+    });
+}
+;

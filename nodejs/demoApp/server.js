@@ -40,6 +40,11 @@ app.post("/queryAll", function(req, res, next) {
     userDao.queryAll(req, res, next);
 });
 
+// 登录验证
+app.post("/queryByUsername", function(req, res, next) {
+    userDao.queryByUsername(req, res, next);
+});
+
 // 获取模板
 app.get("/getTemplate", function (req, res) {
     res.sendFile("D:\\worspace\\myblog\\angularjs\\modules\\"+ req.query.moduleName +"\\template.html");
