@@ -11,7 +11,6 @@ function Login() {
 Login.prototype.load = function () {
     var module = this;
     PY.getTemplate(module.name, function(tm) {
-
         // 渲染主模板
         var $master = $(tm).find("[tmkey=master]");
         module.container.empty();
@@ -41,10 +40,12 @@ Login.prototype.setEvent = function () {
                 function(res) {
                     // 成功
                     if (res.length > 0) {
-                        window.open("file:///D:/worspace/myblog/angularjs/view/index/index.html", "_self");
-                        /*$(res).each(function () {
-
-                         });*/
+                        // 管理员
+                        if(res[0].username == "admin") {
+                            window.open("/view/AdminIndex/index.html", "_self");
+                        }else {
+                            window.open("/view/index/index.html", "_self");
+                        }
                     }
                     // 失败
                     else {

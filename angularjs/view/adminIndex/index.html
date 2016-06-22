@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+        <html>
+<head lang="en">
+    <meta charset="utf-8"/>
+    <title>管理首页</title>
+    <script src="../../lib/jquery/jquery-3.0.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <link href="../../lib/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="../../lib/bootstrap-3.3.5-dist/js/bootstrap.min.js"></script>
+    <script src="../../lib/plugins/tools/tools.js"></script>
+
+
+    <script src="../../lib/plugins/verticalNav/js/menu_min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../lib/plugins/verticalNav/css/menu-css.css">
+    <link rel="stylesheet" type="text/css" href="../../lib/plugins/verticalNav/css/style.css">
+
+    <script src="../../lib/angular.min.js"></script> <script src="../../modules/AdminIndex/module.js"></script>
+    <script>
+        $(document).ready(function() {
+            new AdminIndex("main").load();
+        });
+    </script>
+</head>
+<body>
+<div class="main"></div>
+</body>
+</html>
