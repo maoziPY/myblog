@@ -2,7 +2,7 @@
  * Created by PY on 2016/6/10 0010.
  */
 var express = require("express");
-var userDao = require("./dao/userDao");
+var userDao = require("./nodejs/demoApp/dao/userDao");
 var app = express();
 
 var bodyParser = require("body-parser");

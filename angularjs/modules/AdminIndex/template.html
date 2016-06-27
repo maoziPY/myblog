@@ -68,79 +68,82 @@
         </div>
     </tm>
     <tm tmkey="adMenuDetail">
-        <div data-example-id="contextual-table" class="listBlock">
-            <table class="table table-hover">
-                <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
-                    <th>Column heading</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr class="active">
-                    <th scope="row">1</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">2</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">3</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">4</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">5</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">6</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">7</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">8</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">9</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                <tr class="active">
-                    <th scope="row">10</th>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                    <td>Column content</td>
-                </tr>
-                </tbody>
-            </table>
+        <div ng-app="md" ng-controller="mdCtrl">
+            <div data-example-id="contextual-table" class="listBlock">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>序号</th>
+                        <th>用户名</th>
+                        <th>密码</th>
+                        <th>操作</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="active" ng-repeat="x in rows">
+                        <th>{{x}}</th>
+                        <td>{{x}}</td>
+                        <td>{{x}}</td>
+                        <td>管理 删除</td>
+                    </tr>
+
+                    <!-- <tr class="active">
+                         <th scope="row">2</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">3</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">4</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">5</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">6</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">7</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">8</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">9</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>
+                     <tr class="active">
+                         <th scope="row">10</th>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                         <td>Column content</td>
+                     </tr>-->
+                    </tbody>
+                </table>
+            </div>
         </div>
         <div class="page">
             <nav>

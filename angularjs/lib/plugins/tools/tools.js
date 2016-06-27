@@ -51,4 +51,17 @@ SERVER.call = function(url, par, success) {
             }
         }
     });
+
+    /*$http({
+        url: 'http://localhost:8081/',
+        params:{
+            'username222':'PY',
+            "testName" : "PY2"
+        },
+        method: 'post'
+    }).success(function (data, header, config, status) {
+        console.log(data);
+    }).error(function (data, header, config, status) {
+        console.log(data);
+    });*/
 };
