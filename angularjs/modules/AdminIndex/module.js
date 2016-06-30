@@ -7,53 +7,50 @@ function AdminIndex() {
     module.name = /function\s+(\w+)/.exec(arguments.callee)[1]; // 模板名称
 }
 
-AdminIndex.prototype.load = function() {
+AdminIndex.prototype.load = function () {
     var module = this;
+    /*var app = angular.module("md", []);
+     app.controller("mdCtrl", function ($scope, $http) {
+     $http.post("http://localhost:3000/queryAll").then(function(response) {
+     $("body").html('<div">{{rows}}</div>');
+     $scope.rows = "1111";
+     /!* /!*$scope.myWelcome = response.data;*!/
+     var tm = '<div> ' +
+     '<div data-example-id="contextual-table" class="listBlock">' +
+     '<table class="table table-hover">' +
+     '<thead>' +
+     '<tr>' +
+     '<th>序号</th>' +
+     '<th>用户名</th>' +
+     '<th>密码</th>' +
+     '<th>操作</th>' +
+     '</tr>' +
+     '</thead>' +
+     '<tbody>' +
+     '<tr class="active" ng-repeat="x in rows">' +
+     '<th>{{x}}</th>' +
+     '<td>{{x}}</td>' +
+     '<td>{{x}}</td>' +
+     '<td>管理 删除</td>' +
+     '</tr>' +
+     '</tbody>' +
+     '</table>' +
+     '</div>' +
+     '</div>';
+     $("body").prepend(tm);*!/
 
- /*   // 用户账号密码
+     });
 
-            var tm = '<div ng-app="md" ng-controller="mdCtrl"> ' +
-                '<div data-example-id="contextual-table" class="listBlock">' +
-                '<table class="table table-hover">' +
-                '<thead>' +
-                '<tr>' +
-                '<th>序号</th>' +
-                '<th>用户名</th>' +
-                '<th>密码</th>' +
-                '<th>操作</th>' +
-                '</tr>' +
-                '</thead>' +
-                '<tbody>' +
-                '<tr class="active" ng-repeat="x in rows">' +
-                '<th>{{x}}</th>' +
-                '<td>{{x}}</td>' +
-                '<td>{{x}}</td>' +
-                '<td>管理 删除</td>' +
-                '</tr>' +
-                '</tbody>' +
-                '</table>' +
-                '</div>' +
-                '</div>';
-            $("body").prepend(tm);
+     });*/
+    /* return;
+     app.controller("mdCtrl", function ($scope) {
 
+     /!*var app = angular.module("md", []);
+     app.controller("mdCtrl", function ($scope) {*!/
+     $scope.rows = ["1", "2", "3"];
+     return;*/
+    PY.getTemplate(module.name, function (tm) {
 
-            var app2 = angular.module("md", []);
-            app2.controller("mdCtrl", function($scope, $http) {
-                    $http({
-                        url: ' http://localhost:3000/queryAll',
-                        params:{
-
-                        },
-                        method: 'post'
-                    }).success(function (data, header, config, status) {
-                        $scope.rows = ["1", "2", "3"];
-                    }).error(function (data, header, config, status) {
-                    });
-
-            });
-    return;*/
-
-    PY.getTemplate(module.name, function(tm) {
         // 渲染主模板
         var $master = $(tm).find("[tmkey=master]");
         module.container.empty();
@@ -79,20 +76,18 @@ AdminIndex.prototype.load = function() {
         // 用户账号密码
         SERVER.call("http://localhost:3000/queryAll",
             {},
-        function(res) {
-            return;
-           /* console.log(res);*/
-
-            var app = angular.module("md", []);s
-            console.log(app);
-            app.controller("mdCtrl", function($scope) {
-                $scope.rows = ["1", "2", "3"];
-            });
-        });
+            function (res) {
+                var app = angular.module("md", []);
+                app.controller("mdCtrl", function ($scope) {
+                    $scope.rows = ["1", "2", "3"];
+                });
+            }
+        );
 
 
         menuContainer.find(".menu ul li").menu();
 
 
     });
-};
+
+}

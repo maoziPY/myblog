@@ -26,50 +26,18 @@
 
     <script src="/modules/AdminIndex/module.js"></script>
     <script>
-        /*$(document).ready(function () {*/
-        window.onload = function() {
-             new AdminIndex("main").load();
-            /*var app = angular.module("myApp", []);
 
-            console.log(app);
-
-            app.controller("myCtrl", function($scope) {
-                $scope.rows = ["1", "2", "3"];
-            });*/
-
-            /*var tm = '<div ng-app="md" ng-controller="mdCtrl"> ' +
-                    '<div data-example-id="contextual-table" class="listBlock">' +
-                    '<table class="table table-hover">' +
-                    '<thead>' +
-                    '<tr>' +
-                    '<th>序号</th>' +
-                    '<th>用户名</th>' +
-                    '<th>密码</th>' +
-                    '<th>操作</th>' +
-                    '</tr>' +
-                    '</thead>' +
-                    '<tbody>' +
-                    '<tr class="active" ng-repeat="x in rows">' +
-                    '<th>{{x}}</th>' +
-                    '<td>{{x}}</td>' +
-                    '<td>{{x}}</td>' +
-                    '<td>管理 删除</td>' +
-                    '</tr>' +
-                    '</tbody>' +
-                    '</table>' +
-                    '</div>' +
-                    '</div>';
-            $("body").prepend(tm);
-
-            var app2 = angular.module("md", []);
-            console.log(app2);
-            app2.controller("mdCtrl", function ($scope) {
-                $scope.rows = ["1", "2", "3"];
-            });*/
-        };
+        /* $(document).ready(function() {*/
+        /*  window.onload = function () {*/
+        /* new AdminIndex("main").load(ng_app);*/
+        angular.element(window).bind('load', function () {
+              new AdminIndex("main").load();
+        });
+        /*};*/
+        /*});*/
     </script>
 </head>
-<body>
+<body ng-app="md" ng-controller="mdCtrl">
 <!--<div ng-app="myApp" ng-controller="myCtrl">
 
     <table class="table table-hover">

@@ -2,7 +2,7 @@
  * Created by PY on 2016/6/10 0010.
  */
 var express = require("express");
-var userDao = require("./nodejs/demoApp/dao/userDao");
+var userDao = require("./demoApp/dao/userDao");
 var app = express();
 
 var bodyParser = require("body-parser");
@@ -61,5 +61,7 @@ var server = app.listen(3000, function() {
     var host = server.address().address;
     var port = server.address().port;
 
+
     console.log("应用实例，访问地址为 http://%s:%s", host, port);
+    console.log("本地路径为：" + __dirname);
 });
